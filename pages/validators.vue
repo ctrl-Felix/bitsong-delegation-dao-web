@@ -52,17 +52,11 @@ export default {
   },
   async fetch(){
     this.$store.commit('title/change', 'Validators')
-    let v = await this.$axios.get('https://lcd.explorebitsong.com/cosmos/staking/v1beta1/validators?status=BOND_STATUS_BONDED&pagination.limit=300')
-    this.validators_default = v.data.validators
-    this.validators_default.sort(function(a, b){
-      return b.tokens - a.tokens
-    })
-    this.validators = this.validators_default
 
-    let d = await this.$axios.get('https://lcd.explorebitsong.com/cosmos/staking/v1beta1/delegations/bitsong1nphhydjshzjevd03afzlce0xnlrnsm27hy9hgd')
-    let delegations = d.data.delegation_responses.filter((d => {
-      return d.balance.amount > 0
-    }))
+    this.validators_default = this.$store.state.validators.validators
+    let delegations = this.$store.state.validators.delegations
+
+    this.validators = this.validators_default
 
     this.validators_adj = this.validators.map(x => {
       let f = delegations.find(d => d.delegation.validator_address === x.operator_address)
