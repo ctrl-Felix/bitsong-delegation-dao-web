@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export default {
   target: 'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -40,8 +42,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxt/http'
     // https://go.nuxtjs.dev/content
-    '@nuxt/content',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -55,4 +57,14 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  generate: {
+    routes() {
+      return axios.get('https://api.github.com/repos/bitsongofficial/delegation-program/issues').then(res => {
+        return res.data.map(application => {
+          return '/applications/' + application.number
+        })
+      })
+    }
+  }
 }

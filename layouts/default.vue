@@ -52,21 +52,21 @@
             <div class="mt-5 flex-1 h-0 overflow-y-auto">
               <nav class="px-2 space-y-1">
                 <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-gray-700" -->
-                <a href="#" class="bg-gray-800 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                <NuxtLink to="/" href="#" v-bind:class="$nuxt.$route.name === 'index'? 'bg-gray-800' : 'hover:bg-gray-700'" class="text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
                   <!-- Heroicon name: outline/home -->
                   <svg class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>
                   Dashboard
-                </a>
+                </NuxtLink>
 
-                <a href="#" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                <NuxtLink to="/validators" v-bind:class="$nuxt.$route.name === 'validators'? 'bg-gray-800' : 'hover:bg-gray-700'" href="#" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-base font-medium rounded-md">
                   <!-- Heroicon name: outline/users -->
                   <svg class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                   Validators
-                </a>
+                </NuxtLink>
 
                 <a href="#" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-base font-medium rounded-md">
                   <!-- Heroicon name: outline/folder -->
@@ -84,13 +84,13 @@
                   Roadmap
                 </a>
 
-                <a href="#" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                <NuxtLink to="/applications" v-bind:class="$nuxt.$route.name === 'applications'? 'bg-gray-800' : 'hover:bg-gray-700'" class="text-indigo-100 group flex items-center px-2 py-2 text-base font-medium rounded-md">
                   <!-- Heroicon name: outline/inbox -->
                   <svg class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
                   </svg>
                   Applications
-                </a>
+                </NuxtLink>
 
                 <a href="#" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-base font-medium rounded-md">
                   <!-- Heroicon name: outline/chart-bar -->
@@ -119,21 +119,21 @@
           <div class="mt-5 flex-1 flex flex-col">
             <nav class="flex-1 px-2 pb-4 space-y-1">
               <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-gray-700" -->
-              <a href="#" class="bg-gray-800 text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+              <NuxtLink to="/" href="#" v-bind:class="$nuxt.$route.name === 'index'? 'bg-gray-800' : 'hover:bg-gray-700'" class="text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                 <!-- Heroicon name: outline/home -->
                 <svg class="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                 </svg>
                 Dashboard
-              </a>
+              </NuxtLink>
 
-              <a href="#" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+              <NuxtLink to="/validators" v-bind:class="$nuxt.$route.name === 'validators'? 'bg-gray-800' : 'hover:bg-gray-700'" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                 <!-- Heroicon name: outline/users -->
                 <svg class="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
                 Valdiators
-              </a>
+              </NuxtLink>
 
               <a href="#" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                 <!-- Heroicon name: outline/folder -->
@@ -151,13 +151,13 @@
                 Roadmap
               </a>
 
-              <a href="#" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+              <NuxtLink to="/applications" v-bind:class="$nuxt.$route.name === 'applications'? 'bg-gray-800' : 'hover:bg-gray-700'" class="text-indigo-100 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                 <!-- Heroicon name: outline/inbox -->
                 <svg class="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
                 </svg>
-                Application
-              </a>
+                Applications
+              </NuxtLink>
 
               <a href="#" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                 <!-- Heroicon name: outline/chart-bar -->
@@ -172,7 +172,7 @@
       </div>
       <div class="md:pl-64 flex flex-col flex-1">
         <div class="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white shadow">
-          <button @click="toggle()" type="button" class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden">
+          <button @click="sidebarOpen = true" type="button" class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden">
             <span class="sr-only">Open sidebar</span>
             <!-- Heroicon name: outline/menu-alt-2 -->
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -210,7 +210,7 @@
         <main>
           <div class="py-6">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              <h1 class="text-2xl font-semibold text-gray-900">Dashboard</h1>
+              <h1 class="text-2xl font-semibold text-gray-900">{{title}}</h1>
             </div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
               <!-- Replace with your content -->
@@ -231,9 +231,9 @@ export default {
       sidebarOpen : false
     }
   },
-  methods: {
-    toggle () {
-      this.sidebarOpen  = !this.sidebarOpen
+  computed: {
+    title () {
+      return this.$store.state.title.title
     }
   }
 }
