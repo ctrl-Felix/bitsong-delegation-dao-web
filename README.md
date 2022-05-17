@@ -1,4 +1,5 @@
-# delegation-dao
+# Delegation-dao frontend
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ff147130-4369-40f7-9862-9fd0c3589a3d/deploy-status)](https://app.netlify.com/sites/bitsong-delegation-dao/deploys)
 
 ## Build Setup
 
