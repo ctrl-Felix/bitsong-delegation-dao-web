@@ -1,6 +1,11 @@
 <template>
   <div class="">
     <div class="flex flex-col">
+      <div class="mb-2 -mt-2">
+        <button v-if="adjusted" @click="toggle()" class="rounded p-2 bg-gray-200 w-48 text-center hover:bg-gray-400" >Switch to Default</button>
+        <button v-else @click="toggle()" class="rounded p-2 bg-gray-200 w-48 text-center hover:bg-gray-400" >Switch to Adjusted</button>
+
+      </div>
       <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
           <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
@@ -19,8 +24,8 @@
               <tbody class="bg-white">
               <tr v-for="(validator, id) in validators" :key="validator.operator_address" :class="id % 2 === 0 ? undefined : 'bg-gray-50'">
                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 font-bold">{{ id + 1 }}</td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900">{{ validator.description.moniker }}</td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900">{{ validator.tokens / 10 ** 6 }}</td>
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900 font-semibold">{{ validator.description.moniker }}</td>
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900">{{ nFormatter(validator.tokens / 10 ** 6, 4) }} BTSG</td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900">Soon</td>
                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                   <a target="_blank" class="text-indigo-600 hover:text-indigo-700 border rounded px-3 py-2 hover:bg-gray-200" :href="validator.description.website">Website</a>
@@ -39,17 +44,41 @@ export default {
   data() {
     return {
       'validators': [],
+      'validators_default': [],
+      'validators_adj': [],
       'images': {},
-    'people': [{ name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' }]
+      'adjusted': false,
     }
   },
   async fetch(){
     this.$store.commit('title/change', 'Validators')
     let v = await this.$axios.get('https://lcd.explorebitsong.com/cosmos/staking/v1beta1/validators?status=BOND_STATUS_BONDED&pagination.limit=300')
-    this.validators = v.data.validators
-    this.validators.sort(function(a, b){
+    this.validators_default = v.data.validators
+    this.validators_default.sort(function(a, b){
       return b.tokens - a.tokens
     })
+    this.validators = this.validators_default
+
+    let d = await this.$axios.get('https://lcd.explorebitsong.com/cosmos/staking/v1beta1/delegations/bitsong1nphhydjshzjevd03afzlce0xnlrnsm27hy9hgd')
+    let delegations = d.data.delegation_responses.filter((d => {
+      return d.balance.amount > 0
+    }))
+
+    this.validators_adj = this.validators.map(x => {
+      let f = delegations.find(d => d.delegation.validator_address === x.operator_address)
+      if (f){
+        let m = {...x}
+        m.tokens -= +f.balance.amount
+        return m
+        } else {
+        return x
+      }
+    })
+    this.validators_adj.sort(function(a, b){
+      return b.tokens - a.tokens
+    })
+
+
     /*for (let x in this.validators) {
       console.log(this.validators[x].description.identity)
       if (this.validators[x].description.identity){
@@ -60,6 +89,31 @@ export default {
     }*/
   },
   methods: {
+    toggle(){
+      this.adjusted = !this.adjusted
+      if(this.adjusted){
+        this.validators = this.validators_adj
+      } else {
+        this.validators = this.validators_default
+      }
+    },
+    nFormatter(num, digits) {
+      const lookup = [
+        { value: 1, symbol: "" },
+        { value: 1e3, symbol: "k" },
+        { value: 1e6, symbol: "M" },
+        { value: 1e9, symbol: "G" },
+        { value: 1e12, symbol: "T" },
+        { value: 1e15, symbol: "P" },
+        { value: 1e18, symbol: "E" }
+      ];
+      const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+      var item = lookup.slice().reverse().find(function(item) {
+        return num >= item.value;
+      });
+      return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0";
+    }
+
   }
 }
 </script>
