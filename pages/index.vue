@@ -23,7 +23,7 @@
           Total Amount
         </dt>
         <dd class="mt-1 text-3xl font-semibold text-gray-900">
-          4M $BTSG
+          {{ nFormatter(total  / 10 ** 6, 0) }} $BTSG
         </dd>
       </div>
     </dl>
@@ -37,9 +37,9 @@
             </tr>
           </thead>
           <tbody>
-          <tr v-for="(value, address) in delegations">
-            <td class="py-3.5 pl-4 pr-3">{{getValidatorByAddress(address).description.moniker}}</td>
-            <td class="py-3.5 pl-4 pr-3">{{nFormatter(value  / 10 ** 6, 0)}} BTSG</td>
+          <tr v-for="delegation in delegations">
+            <td class="py-3.5 pl-4 pr-3">{{getValidatorByAddress(delegation.delegation.validator_address).description.moniker}}</td>
+            <td class="py-3.5 pl-4 pr-3">{{nFormatter(delegation.balance.amount  / 10 ** 6, 0)}} BTSG</td>
 
           </tr>
           </tbody>
@@ -56,24 +56,27 @@ export default {
   data(){
     return {
       'validators':[],
-      'delegations': {}
+      'delegations': [],
+      'total': 0
     }
   },
   async fetch(){
     let valreq = await this.$axios.get('https://lcd.explorebitsong.com/cosmos/staking/v1beta1/validators?status=BOND_STATUS_BONDED&pagination.limit=300')
-    this.$axios.get('https://lcd.explorebitsong.com/cosmos/staking/v1beta1/delegations/bitsong1nphhydjshzjevd03afzlce0xnlrnsm27hy9hgd').then(res => {
-      let data = res.data
-      for (let i of data.delegation_responses){
-        let val = i.delegation.validator_address
-        if (i.balance.amount > 0){
-          this.delegations[val] = this.delegations[val] + parseInt(i.balance.amount) || parseInt(i.balance.amount)
-
-        }
-        this.$nuxt.refresh()
-      }
+    let v = await this.$axios.get('https://lcd.explorebitsong.com/cosmos/staking/v1beta1/delegations/bitsong1nphhydjshzjevd03afzlce0xnlrnsm27hy9hgd')
+    this.delegations = v.data.delegation_responses.filter((d => {
+      return d.balance.amount > 0
+    }))
+    this.delegations.sort((a, b) => {
+      return +b.balance.amount - +a.balance.amount
     })
-    this.validators = valreq['data']['validators']
+    this.validators = valreq.data.validators
+    this.total = this.delegations.reduce((pre, cur) => pre + +cur['balance']['amount'], 0)
+
+
     this.$store.commit('title/change', "Dashboard" )
+
+  },
+  mounted() {
   },
   methods: {
     getValidatorByAddress(address){
