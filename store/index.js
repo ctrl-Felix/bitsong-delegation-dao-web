@@ -9,6 +9,9 @@ export const actions = {
     const d2 = await this.$axios.get('https://lcd.explorebitsong.com/cosmos/staking/v1beta1/delegations/bitsong166d42nyufxrh3jps5wx3egdkmvvg7jl6k33yut')
     commit('validators/addDelegations', d2.data.delegation_responses)
 
+    let e = await this.$axios.get("https://raw.githubusercontent.com/bitsongofficial/delegation-program/master/endpoints.json")
+    commit('monitor/setEndpoints', e.data)
+
 
   }
 }

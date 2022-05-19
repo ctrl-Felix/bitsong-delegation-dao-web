@@ -65,7 +65,6 @@ export default {
   },
   async fetch(){
     this.delegations = this.$store.state.validators.delegations
-    console.log(this.delegations)
     this.validators = this.$store.state.validators.validators
     this.total = this.delegations.reduce((pre, cur) => pre + +cur['balance']['amount'], 0)
     this.$store.commit('title/change', "Dashboard" )

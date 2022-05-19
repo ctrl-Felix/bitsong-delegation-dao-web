@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 export default {
-  target: 'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'delegation-dao',
@@ -19,6 +18,9 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  },
+  env: {
+    API: process.env.API || 'http://localhost:8000'
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
