@@ -12,7 +12,7 @@
     "lintfix": "prettier --write --list-different ."
   },
   "dependencies": {
-    "@headlessui/vue": "^1.6.1",
+    "@headlessui/vue": "^1.6.4",
     "@heroicons/vue": "^1.0.6",
     "@nuxt/content": "^1.15.1",
     "@nuxt/http": "^0.6.4",
