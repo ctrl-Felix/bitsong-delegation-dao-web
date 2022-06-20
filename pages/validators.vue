@@ -32,7 +32,7 @@
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900">{{ nFormatter(validator.tokens / 10 ** 6, 4) }} BTSG ({{Math.floor(validator.tokens / 10 ** 6)}})</td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900">Soon</td>
                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                  <a target="_blank" class="text-indigo-600 hover:text-indigo-700 border rounded px-3 py-2 hover:bg-gray-200" :href="'https://explorebitsong.com/validators' + validator.operator_address">Explorer</a>
+                  <a target="_blank" class="text-indigo-600 hover:text-indigo-700 border rounded px-3 py-2 hover:bg-gray-200" :href="'https://explorebitsong.com/validators/' + validator.operator_address">Explorer</a>
                 </td>
                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                   <a target="_blank" class="text-indigo-600 hover:text-indigo-700 border rounded px-3 py-2 hover:bg-gray-200" :href="validator.description.website">Website</a>

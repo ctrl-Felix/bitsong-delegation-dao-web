@@ -131,7 +131,7 @@ export default {
       'relayer': this.$route.query.relayer || null,
       'archiveNode': this.$route.query.archiveNode || null,
       'api': this.$route.query.api || null,
-      'score': this.$route.query.score || null,
+      'score': null,
       'results': {
         'uptime': null,
         'rank': null,
@@ -144,7 +144,6 @@ export default {
         'relayer': null,
         'archiveNode': null,
         'api': null,
-        'score': null,
       }
 
 
@@ -152,8 +151,7 @@ export default {
   },
   async fetch() {
     this.$store.commit("title/change", "Calculator")
-    console.log(this.$route.query.calculate)
-    if (this.$route.query.calculate) {
+    if (this.$route.query.calculate && this.score === null) {
       this.calculate()
     }
   },
@@ -177,16 +175,14 @@ export default {
 
       if (this.pV(this.selfDelegation) < 500) {
         selfDelegationScore = 0
-      } else if (this.pV(this.selfDelegation) < 1000) {
+      } else if (this.pV(this.selfDelegation) < 5000) {
         const sm = 5
-        selfDelegationScore = Math.max(this.pV(this.selfDelegation) / this.pV(this.votingPower) * maxDelegationScore * sm, 0)
-      } else if (this.pV(this.selfDelegation) >= 1000) {
+        let sd = Math.max(this.pV(this.selfDelegation) / this.pV(this.votingPower) * maxDelegationScore * sm, 0)
+        selfDelegationScore = Math.min(sd, 500)
+      } else if (this.pV(this.selfDelegation) >= 5000) {
         const sm = 10
-        selfDelegationScore = Math.max(this.pV(this.selfDelegation) / this.pV(this.votingPower) * maxDelegationScore * sm, 0)
-      }
-      if (selfDelegationScore > maxDelegationScore) {
-        this.showError = true
-        this.error = "Delegation score can't be greater than 1000"
+        let sd = Math.max(this.pV(this.selfDelegation) / this.pV(this.votingPower) * maxDelegationScore * sm, 0)
+        selfDelegationScore = Math.min(sd, 1000)
       }
       score += selfDelegationScore
       this.results.selfDelegation = selfDelegationScore
