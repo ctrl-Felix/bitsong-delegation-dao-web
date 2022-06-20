@@ -16,7 +16,11 @@
                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Name</th>
                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Voting Power</th>
                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Uptime</th>
-                <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
+
+                <th scope="col" class="relative py-3.5 pr-4 sm:pr-6">
+                  <span class="sr-only">Explorer</span>
+                </th>
+                <th scope="col" class="relative py-3.5 pr-4 sm:pr-6">
                   <span class="sr-only">Website</span>
                 </th>
               </tr>
@@ -25,8 +29,11 @@
               <tr v-for="(validator, id) in validators" :key="validator.operator_address" :class="id % 2 === 0 ? undefined : 'bg-gray-50'">
                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 font-bold">{{ id + 1 }}</td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900 font-semibold">{{ validator.description.moniker }}</td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900">{{ nFormatter(validator.tokens / 10 ** 6, 4) }} BTSG</td>
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900">{{ nFormatter(validator.tokens / 10 ** 6, 4) }} BTSG ({{Math.floor(validator.tokens / 10 ** 6)}})</td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900">Soon</td>
+                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                  <a target="_blank" class="text-indigo-600 hover:text-indigo-700 border rounded px-3 py-2 hover:bg-gray-200" :href="'https://explorebitsong.com/validators' + validator.operator_address">Explorer</a>
+                </td>
                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                   <a target="_blank" class="text-indigo-600 hover:text-indigo-700 border rounded px-3 py-2 hover:bg-gray-200" :href="validator.description.website">Website</a>
                 </td>

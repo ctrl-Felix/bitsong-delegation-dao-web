@@ -54,10 +54,10 @@ export default {
   async fetch() {
     this.$store.commit('title/change', 'Endpoints')
 
-    let h = await this.$axios.get(process.env.API + "/uptime/endpoints/historic")
+    let h = await this.$axios.get(this.$config.BASE_API_URL + "/uptime/endpoints/historic")
     this.history = h.data
 
-    let sr = await this.$axios.get(process.env.API + "/uptime/endpoints/current")
+    let sr = await this.$axios.get(this.$config.BASE_API_URL + "/uptime/endpoints/current")
     this.status = sr.data
     this.loading = false
 

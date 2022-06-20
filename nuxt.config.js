@@ -6,7 +6,7 @@ export default {
     title: 'delegation-dao',
     htmlAttrs: {
       lang: 'en',
-      class: 'h-full bg-gray-100'
+      class: 'h-full bg-gray-50'
     },
     bodyAttrs: {
       class: 'h-full'
@@ -19,8 +19,8 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  env: {
-    API: process.env.API || 'http://localhost:8000'
+  publicRuntimeConfig: {
+    BASE_API_URL: process.env.BASE_API_URL || 'https://bitsong-api.ctrl-felix.de'
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

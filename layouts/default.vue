@@ -76,13 +76,12 @@
                   Monitoring
                 </NuxtLink>
 
-                <a href="#" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-base font-medium rounded-md">
-                  <!-- Heroicon name: outline/calendar -->
-                  <svg class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                <NuxtLink to="/about" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  Roadmap
-                </a>
+                  About
+                </NuxtLink>
 
                 <NuxtLink to="/applications" v-bind:class="$nuxt.$route.name === 'applications'? 'bg-gray-800' : 'hover:bg-gray-700'" class="text-indigo-100 group flex items-center px-2 py-2 text-base font-medium rounded-md">
                   <!-- Heroicon name: outline/inbox -->
@@ -92,13 +91,13 @@
                   Applications
                 </NuxtLink>
 
-                <a href="#" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                <NuxtLink to="/calculator" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-base font-medium rounded-md">
                   <!-- Heroicon name: outline/chart-bar -->
                   <svg class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
-                  Archive
-                </a>
+                  Calculator
+                </NuxtLink>
               </nav>
             </div>
           </div>
@@ -143,13 +142,13 @@
                 Monitoring
               </NuxtLink>
 
-              <a href="#" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+              <NuxtLink to="/about" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                 <!-- Heroicon name: outline/calendar -->
-                <svg class="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                Roadmap
-              </a>
+                About
+              </NuxtLink>
 
               <NuxtLink to="/applications" v-bind:class="$nuxt.$route.name === 'applications'? 'bg-gray-800' : 'hover:bg-gray-700'" class="text-indigo-100 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                 <!-- Heroicon name: outline/inbox -->
@@ -159,13 +158,13 @@
                 Applications
               </NuxtLink>
 
-              <a href="#" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+              <NuxtLink to="/calculator" class="text-indigo-100 hover:bg-gray-700 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                 <!-- Heroicon name: outline/chart-bar -->
                 <svg class="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
-                Archive
-              </a>
+                Calculator
+              </NuxtLink>
             </nav>
           </div>
         </div>
@@ -190,7 +189,7 @@
                       <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                     </svg>
                   </div>
-                  <input id="search-field" class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm" placeholder="Search" type="search" name="search">
+                  <input id="search-field" class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm" placeholder="Search | Coming soon" type="search" name="search">
                 </div>
               </form>
             </div>
