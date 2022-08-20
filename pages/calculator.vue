@@ -113,9 +113,7 @@
 
 </template>
 <script>
-import Notification from "/components/ui/Notification";
 export default {
-  components: {Notification},
   data() {
     return {
       'showError': false,
