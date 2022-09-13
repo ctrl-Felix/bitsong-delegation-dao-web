@@ -1029,10 +1029,10 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@headlessui/vue@^1.6.1":
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/@headlessui/vue/-/vue-1.6.1.tgz#772dde92ec3a3a494c827b1643a6d5538baabd29"
-  integrity sha512-fccGN1hsFvS0P73NplZoOdX1rhyaH5jIQE9IUKNaaJC72mQjR3lVvZldo+iiLF5X1bqgl6pDixWdqS2kMGfFxA==
+"@headlessui/vue@^1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@headlessui/vue/-/vue-1.7.1.tgz#fa476235dc67e6f99f9b13d3fe093dc5b5b6061a"
+  integrity sha512-mbwn1cT92aozb7GDsLvYBx3O44okBwN4FJEf9ZnncFl83XRnxkw73oGc4CwPsDGAelxvzkginSrgEiK+vUOXIg==
 
 "@heroicons/vue@^1.0.6":
   version "1.0.6"
