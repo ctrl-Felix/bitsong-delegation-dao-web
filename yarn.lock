@@ -2849,12 +2849,17 @@ browserslist@*, browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.20.2,
     node-releases "^2.0.3"
     picocolors "^1.0.0"
 
-bson@^4.6.2, bson@^4.6.3:
+bson@^4.6.2:
   version "4.6.3"
   resolved "https://registry.yarnpkg.com/bson/-/bson-4.6.3.tgz#d1a9a0b84b9e84b62390811fc5580f6a8b1d858c"
   integrity sha512-rAqP5hcUVJhXP2MCSNVsf0oM2OGU1So6A9pVRDYayvJ5+hygXHQApf87wd5NlhPM1J9RJnbqxIG/f8QTzRoQ4A==
   dependencies:
     buffer "^5.6.0"
+
+bson@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/bson/-/bson-5.0.0.tgz#32b3d10b55be5c7d698cf311b7232a88498efb7d"
+  integrity sha512-EL2KpZdyhshyyptj6pnQfnFKPoncD9KwZYvgmj/FXQiOUU1HWTHWmBOP4TZXU3YzStcI5qgpIl68YnMo16s26A==
 
 buffer-from@^1.0.0:
   version "1.1.2"
@@ -5509,6 +5514,11 @@ ip@^1.1.5:
   resolved "https://registry.yarnpkg.com/ip/-/ip-1.1.8.tgz#ae05948f6b075435ed3307acce04629da8cdbf48"
   integrity sha512-PuExPYUiu6qMBQb4l06ecm6T6ujzhmh+MeJcW9wa89PoAz5pvd4zPgN5WJV104mb6S2T1AwNIAaB70JNrLQWhg==
 
+ip@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ip/-/ip-2.0.0.tgz#4cf4ab182fee2314c75ede1276f8c80b479936da"
+  integrity sha512-WKa+XuLG1A1R0UWhl2+1XQSi+fZWMsYKffMZTTYsiZaUD8k2yDAj5atimTUD2TZkyCkNEeYE5NhFZmupOGtjYQ==
+
 ipaddr.js@1.9.1:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.9.1.tgz#bff38543eeb8984825079ff3a2a8e6cbd46781b3"
@@ -6804,10 +6814,10 @@ mlly@^0.5.1, mlly@^0.5.2:
     pathe "^0.2.0"
     pkg-types "^0.3.2"
 
-mongodb-connection-string-url@^2.5.2:
-  version "2.5.2"
-  resolved "https://registry.yarnpkg.com/mongodb-connection-string-url/-/mongodb-connection-string-url-2.5.2.tgz#f075c8d529e8d3916386018b8a396aed4f16e5ed"
-  integrity sha512-tWDyIG8cQlI5k3skB6ywaEA5F9f5OntrKKsT/Lteub2zgwSUlhqEN2inGgBTm8bpYJf8QYBdA/5naz65XDpczA==
+mongodb-connection-string-url@^2.5.2, mongodb-connection-string-url@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/mongodb-connection-string-url/-/mongodb-connection-string-url-2.6.0.tgz#57901bf352372abdde812c81be47b75c6b2ec5cf"
+  integrity sha512-WvTZlI9ab0QYtTYnuMLgobULWhokRjtC7db9LtcVfJ+Hsnyr5eo6ZtNAt3Ly24XZScGMelOcGtm7lSn0332tPQ==
   dependencies:
     "@types/whatwg-url" "^8.2.1"
     whatwg-url "^11.0.0"
@@ -6824,15 +6834,14 @@ mongodb@4.5.0:
   optionalDependencies:
     saslprep "^1.0.3"
 
-mongodb@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-4.6.0.tgz#a69216da61f4cb1498d68cb396c52313fa39cef6"
-  integrity sha512-1gsxVXmjFTPJ+CkMG9olE4bcVsyY8lBJN9m5B5vj+LZ7wkBqq3PO8RVmNX9GwCBOBz1KV0zM00vPviUearSv7A==
+mongodb@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-5.0.1.tgz#98186e6936d404fced32614e6673be5178e88dff"
+  integrity sha512-KpjtY+NWFmcic6UDYEdfn768ZTuKyv7CRaui7ZSd6q/0/o1AURMC7KygTUwB1Cl8V10Pe5NiP+Y2eBMCDs/ygQ==
   dependencies:
-    bson "^4.6.3"
-    denque "^2.0.1"
-    mongodb-connection-string-url "^2.5.2"
-    socks "^2.6.2"
+    bson "^5.0.0"
+    mongodb-connection-string-url "^2.6.0"
+    socks "^2.7.1"
   optionalDependencies:
     saslprep "^1.0.3"
 
@@ -9288,12 +9297,12 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
-socks@^2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/socks/-/socks-2.6.2.tgz#ec042d7960073d40d94268ff3bb727dc685f111a"
-  integrity sha512-zDZhHhZRY9PxRruRMR7kMhnf3I8hDs4S3f9RecfnGxvcBHQcKcIH/oUcEWffsfl1XxdYlA7nnlGbbTvPz9D8gA==
+socks@^2.6.2, socks@^2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/socks/-/socks-2.7.1.tgz#d8e651247178fde79c0663043e07240196857d55"
+  integrity sha512-7maUZy1N7uo6+WVEX6psASxtNlKaNVMlGQKkG/63nEDdLOWNbiUMoLK7X4uYoLhQstau72mLgfEWcXcwsaHbYQ==
   dependencies:
-    ip "^1.1.5"
+    ip "^2.0.0"
     smart-buffer "^4.2.0"
 
 sort-keys@^1.0.0:
